@@ -51,7 +51,7 @@ public class CameraController : MonoBehaviour
         rotation.y += Input.GetAxis(yAxis) * -sensitivity * -invertYVal;
         rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
 
-        var xQuat = Quaternion.AngleAxis(rotation.x - 40f, Vector3.up);
+        var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
         transform.localRotation = xQuat * yQuat;
