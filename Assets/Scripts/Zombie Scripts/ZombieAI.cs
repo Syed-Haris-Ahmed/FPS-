@@ -25,7 +25,7 @@ public class ZombieAI : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>(); // zombie animator
     }
 
     void Update()
