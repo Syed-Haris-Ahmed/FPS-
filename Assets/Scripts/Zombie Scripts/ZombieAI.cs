@@ -4,7 +4,7 @@ using TMPro;
 
 public class ZombieAI : MonoBehaviour
 {
-    public Transform player;             // The player's position.
+    private Transform player;             // The player's position.
     public float moveSpeed = 5f;         // Enemy's movement speed.
     public float damage = 10f;           // Amount of damage dealt to the player.
     public float attackInterval = 2f;    // Time interval between attacks.
@@ -24,6 +24,22 @@ public class ZombieAI : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Starting ExampleScript...");
+
+        // Find the player GameObject by tag
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            Debug.Log("Player GameObject found.");
+            // Get the Transform component of the player GameObject
+            this.player = player.transform;
+        }
+        else
+        {
+            Debug.LogError("Player GameObject not found. Make sure the player has the 'Player' tag.");
+        }
+
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>(); // zombie animator
     }
